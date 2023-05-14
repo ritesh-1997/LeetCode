@@ -36,8 +36,6 @@ public:
         // Pointing to left
         currR = curr;
 
-        cout << leftList->val << " " << curr->val << " " << currR->val << "\n";
-
         for (int i = left; i <= right; i++)
         {
             nextNode = curr->next;
