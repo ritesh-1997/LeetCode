@@ -8,9 +8,9 @@
  *
  * Return an integer array pairs of length n where pairs[i] is the number of
  * potions that will form a successful pair with the ith spell.
+ *
+ */
 
-
-*/
 class Solution
 {
 public:

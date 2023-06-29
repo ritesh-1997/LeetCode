@@ -7,26 +7,34 @@ using namespace std;
 // } Driver Code Ends
 // User function Template for C++
 
-class Solution{
+class Solution
+{
 public:
-    
-    bool TargetSum(int arr[],int n,int sum){
-        bool t[n+1][sum+1];
-        for(int i=0;i<=n;i++){
-            for(int j=0;j<=sum;j++){
+    bool TargetSum(int arr[], int n, int sum)
+    {
+        bool t[n + 1][sum + 1];
+        for (int i = 0; i <= n; i++)
+        {
+            for (int j = 0; j <= sum; j++)
+            {
                 t[i][j] = 0;
-                if(j==0){
+                if (j == 0)
+                {
                     t[i][j] = 1;
                 }
             }
         }
-        for(int i=1;i<=n;i++){
-            for(int j=1;j<=sum;j++){
-                if(arr[i-1]<=j){
-                    t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
+        for (int i = 1; i <= n; i++)
+        {
+            for (int j = 1; j <= sum; j++)
+            {
+                if (arr[i - 1] <= j)
+                {
+                    t[i][j] = t[i - 1][j - arr[i - 1]] || t[i - 1][j];
                 }
-                else{
-                    t[i][j] = t[i-1][j];
+                else
+                {
+                    t[i][j] = t[i - 1][j];
                 }
             }
         }
@@ -36,36 +44,40 @@ public:
     {
         // code here
         int sum = 0;
-        for(int i=0;i<N;i++){
-            sum+=arr[i];
+        for (int i = 0; i < N; i++)
+        {
+            sum += arr[i];
         }
-        if(sum%2==1){
+        if (sum % 2 == 1)
+        {
             return 0;
         }
-        else{
-            return TargetSum(arr,N,sum/2);
+        else
+        {
+            return TargetSum(arr, N, sum / 2);
         }
-        
     }
 };
 
 //{ Driver Code Starts.
 
-int main(){
+int main()
+{
     int t;
-    cin>>t;
-    while(t--){
+    cin >> t;
+    while (t--)
+    {
         int N;
-        cin>>N;
+        cin >> N;
         int arr[N];
-        for(int i = 0;i < N;i++)
-            cin>>arr[i];
-        
+        for (int i = 0; i < N; i++)
+            cin >> arr[i];
+
         Solution ob;
-        if(ob.equalPartition(N, arr))
-            cout<<"YES\n";
+        if (ob.equalPartition(N, arr))
+            cout << "YES\n";
         else
-            cout<<"NO\n";
+            cout << "NO\n";
     }
     return 0;
 }
