@@ -1,7 +1,7 @@
 //{ Driver Code Starts
 // Initial Template for C++
 /**
- * Initial
+ * Question : https://practice.geeksforgeeks.org/problems/circle-of-strings4530/1
  * Given an array of lowercase strings A[] of size N, determine if the strings
  *  can be chained together to form a circle.
  * A string X can be chained together with another string Y if the last character
