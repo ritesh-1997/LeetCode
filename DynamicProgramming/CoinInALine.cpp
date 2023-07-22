@@ -37,5 +37,30 @@ int Solution::maxcoin(vector<int> &A)
 {
     int n = A.size();
     vector<vector<int>> dp(n, vector<int>(n, -1));
-    return solve(A, 0, n - 1, dp);
+    // return solve(A, 0, n - 1, dp);
+
+    // or
+    for (int g = 0; g < n; g++)
+    {
+        for (int i = 0, j = g; j < n; i++, j++)
+        {
+            if (g == 0)
+            {
+                dp[i][j] = A[i];
+            }
+            else if (g == 1)
+            {
+                dp[i][j] = max(A[i], A[j]);
+            }
+            else
+            {
+                // left
+                int ans1 = A[i] + min(dp[i + 2][j], dp[i + 1][j - 1]);
+                int ans2 = A[j] + min(dp[i + 1][j - 1], dp[i][j - 2]);
+                int ans = max(ans1, ans2);
+                dp[i][j] = ans;
+            }
+        }
+    }
+    return dp[0][n - 1];
 }
